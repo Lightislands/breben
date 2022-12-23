@@ -1,0 +1,45 @@
+.footer-wrap {
+  width: 100%;
+  background-color: #ccc;
+  margin-top: 20px;
+
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px auto 0 auto;
+    max-width: $max-width;
+    @include section-wrap;
+
+    .contacts {
+      display: flex;
+
+      .phone-email {
+        display: flex;
+        flex-direction: column;
+
+        h3 {
+          margin: 10px 0;
+        }
+
+        p {
+          margin: 0;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $phone) {
+  .footer-wrap {
+    .footer {
+      @include section-wrap-mob;
+      display: flex;
+      flex-direction: column;
+
+      .contacts {
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+  }
+}

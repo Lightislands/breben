@@ -1,0 +1,184 @@
+@import "variables";
+@import "what-you-get";
+@import "footer";
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+  "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+  sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.nav {
+  padding-left: $page-padding;
+  background-color: $main-color;
+}
+
+.wrap {
+  display: flex;
+  flex-direction: column;
+
+  h1 {
+    font-size: $font-size-h1;
+  }
+  
+  h2 {
+    font-size: $font-size-h2;
+    color: $text-color-2;
+  }
+  
+  h3 {
+    font-size: $font-size-h3;
+  }
+}
+
+.header-links {
+  margin-left: auto;
+  background: none;
+}
+
+.main {
+  background-image: url("../static/main-backgroud.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  object-fit: cover;
+  max-height: 800px;
+
+  .header-wrap {
+    @include section-wrap;
+  }
+
+  .logo-wrap {
+    @include section;
+    display: flex;
+    align-items: center;
+
+    h1 {
+      padding-left: 40px;
+      color: $text-color-1;
+    }
+
+    .logo {
+      width: 200px;
+      height: 200px;
+    }
+  }
+}
+
+.intro-wrap {
+  @include section-wrap;
+  background-color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 60px;
+  .intro-section {
+    @include section;
+    display: flex;
+  
+    .intro {
+      padding-right: 160px;
+      font-size: $font-size-big;
+    }
+  }
+}
+
+@media screen and (max-width: $small-desctop) {
+  h1 {
+    font-size: $font-size-h1-s;
+  }
+
+  h2 {
+    font-size: $font-size-h2-s;
+  }
+  
+  h3 {
+    font-size: $font-size-h3-s;
+  }
+  
+  .main {
+    max-height: 800px;
+  
+    .logo-wrap {
+      h1 {
+        padding-left: 40px;
+      }
+  
+      .logo {
+        width: 150px;
+        height: 150px;
+      }
+    }
+  }
+
+  .intro-wrap {
+    .intro-section {
+      .intro {
+        padding-right: 80px;
+        font-size: $font-size-normal;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $tablet) {
+  .intro-wrap {
+    background-color: rgba(255, 255, 255, 1);
+    margin-bottom: 60px;
+    
+    .intro-section {
+      display: flex;
+      flex-direction: column;
+
+      .intro {
+        padding-right: 0;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $phone) {
+  .wrap {
+    h1 {
+      font-size: $font-size-h1-mob;
+      font-weight: bold;
+    }
+
+    h2 {
+      font-size: $font-size-h2-mob;
+      font-weight: bold;
+    }
+    
+    h3 {
+      font-size: $font-size-h3-mob;
+    }
+  }
+
+  .header-links {
+    text-align: right;
+    padding-right: $page-padding-mob;
+  }
+
+  .main {
+    .header-wrap {
+      padding: 0;
+    }
+
+    .logo-wrap {
+      padding-left: 20px;
+
+      h1 {
+        padding-left: 20px;
+        margin: 0;
+      }
+
+      .logo {
+        width: 60px;
+        height: 60px;
+      }
+    }
+  }
+
+  .intro-wrap {
+    @include section-wrap-mob;
+  }
+}

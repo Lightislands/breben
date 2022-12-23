@@ -1,0 +1,52 @@
+
+// Colors
+$main-bg-color: #fff;
+$main-color: #59b9da;
+$btn-color: #59b9da;
+$text-color-1: #fff;
+$text-color-2: #2e2e2e;
+$text-color-3: #59b9da;
+$border-color-1: #e7e7e7;
+$bg-color-1: #f4f4f2;
+$icon-color-gray: #5b5b5b;
+
+// Width
+$max-width: 1900px;
+
+// Font sizes
+$font-size-h1: 4rem;
+$font-size-h2: 2.5rem;
+$font-size-h3: 1.5rem;
+$font-size-big: 1.5rem;
+$font-size-normal: 1rem;
+
+$font-size-h1-s: 3rem;
+$font-size-h2-s: 2rem;
+$font-size-h3-s: 1.2rem;
+
+$font-size-h1-mob: 1.5rem;
+$font-size-h2-mob: 1.4rem;
+$font-size-h3-mob: 1.2rem;
+
+// Responsive
+$small-desctop: 1430px;
+$tablet: 1024px;
+$phone: 768px;
+
+// Paddings
+$page-padding: 60px;
+$page-padding-mob: 20px;
+
+// Mixins
+@mixin section-wrap {
+  padding: 0 $page-padding;
+}
+@mixin section-wrap-mob {
+  padding: 0 $page-padding-mob;
+  text-align: justify;
+}
+
+@mixin section {
+  margin: 0 auto;
+  max-width: $max-width;
+}

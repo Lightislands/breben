@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { DataGrid } from '@mui/x-data-grid';
+import TechnologiesChips from './TechnologiesChips';
+import DownloadCV from './DownloadCV';
 
 const columns = [
   {
@@ -11,20 +13,17 @@ const columns = [
   {
     field: 'firstName',
     headerName: 'First name',
-    // width: 130,
     headerClassName: 'cell-header'
   },
   {
     field: 'position',
     headerName: 'Position',
-    // width: 130,
     headerClassName: 'cell-header'
   },
   {
     field: 'experience',
     headerName: 'Exp. / years',
     type: 'number',
-    // width: 90,
     headerClassName: 'cell-header'
   },
   {
@@ -44,7 +43,9 @@ const columns = [
     headerName: 'Technologies',
     headerClassName: 'cell-header',
     minWidth: 100,
-    // valueGetter: (params) => getTechnologies(params.row.technologies),
+    renderCell: (params) => (
+      <TechnologiesChips items={params.value} />
+    ),
     flex: 2,
   },
   {
@@ -52,120 +53,16 @@ const columns = [
     headerName: 'Description',
     headerClassName: 'cell-header',
     flex: 3,
-    // minWidth: 400
-  }
-  // {
-  //   field: 'fullName',
-  //   headerName: 'Full name',
-  //   description: 'This column has a value getter and is not sortable.',
-  //   sortable: false,
-  //   width: 160,
-  //   valueGetter: (params) =>
-  //     `${params.row.firstName || ''} ${params.row.experience || ''}`,
-  //   headerClassName: 'cell-header'
-  // }
-];
-
-
-const Xrows = [
-  {
-    id: 1,
-    firstName: 'Jon',
-    position: "Backend",
-    experience: 5,
-    ratePerHour: 30,
-    rateCurrency: 'EUR',
-    location: 'Poland',
-    technologies: 'Pithon, PostgreSQL, FastAPI',
-    description: 'Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.'
   },
   {
-    id: 2,
-    firstName: 'Cersei',
-    position: 'Frontend',
-    experience: 35,
-    ratePerHour: 30,
-    rateCurrency: 'USD',
-    location: 'USA',
-    technologies: 'React, Vue, jss',
-    description: 'Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.'
-  },
-  {
-    id: 3,
-    firstName: 'Jaime',
-    position: 'Backend',
-    experience: 5,
-    ratePerHour: 30,
-    rateCurrency: 'EUR',
-    location: 'Poland',
-    technologies: 'Pithon, PostgreSQL, FastAPI',
-    description: 'Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.'
-  },
-  {
-    id: 4,
-    firstName: 'Arya',
-    position: 'Backend',
-    experience: 5,
-    ratePerHour: 30,
-    rateCurrency: 'EUR',
-    location: 'Poland',
-    technologies: 'Pithon, PostgreSQL, FastAPI',
-    description: 'Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.'
-  },
-  {
-    id: 5,
-    firstName: 'Daenerys',
-    position: 'PO',
-    experience: null,
-    ratePerHour: 30,
-    rateCurrency: 'USD',
-    location: 'Poland',
-    technologies: 'Pithon, PostgreSQL, FastAPI',
-    description: 'Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.'
-  },
-  {
-    id: 6,
-    firstName: null,
-    position: 'Frontend',
-    experience: 3,
-    ratePerHour: 30,
-    rateCurrency: 'USD',
-    location: 'USA',
-    technologies: 'React, Vue, jss',
-    description: 'Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.'
-  },
-  {
-    id: 7,
-    firstName: 'Ferrara',
-    position: 'PO',
-    experience: 4,
-    ratePerHour: 30,
-    rateCurrency: 'USD',
-    location: 'USA',
-    technologies: 'React, Vue, jss',
-    description: 'Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.'
-  },
-  {
-    id: 8,
-    firstName: 'Rossini',
-    position: 'Backend',
-    experience: 8,
-    ratePerHour: 5,
-    rateCurrency: 'USD',
-    location: 'USA',
-    technologies: 'React, Vue, jss',
-    description: 'Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.'
-  },
-  {
-    id: 9,
-    firstName: 'Harvey',
-    position: 'Backend',
-    experience: 65,
-    ratePerHour: 20,
-    rateCurrency: 'USD',
-    location: 'Poland',
-    technologies: 'Pithon, PostgreSQL, FastAPI',
-    description: 'Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.'
+    field: 'cvId',
+    headerName: 'CV',
+    sortable: false,
+    filterable: false,
+    headerClassName: 'cell-header',
+    renderCell: (params) => (
+      <DownloadCV cvId={params.value} />
+    )
   }
 ];
 
@@ -179,7 +76,8 @@ const QQrows = [
     "rateCurrency": "EUR",
     "location": "Poland",
     "technologies": ["Pithon", "PostgreSQL", "FastAPI"],
-    "description": "Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs."
+    "description": "Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.",
+    "cvId": 'asdf'
   },
   {
     "id": 2,
@@ -190,7 +88,8 @@ const QQrows = [
     "rateCurrency": "USD",
     "location": "USA",
     "technologies": ["React", "Vue", "jss"],
-    "description": "Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs."
+    "description": "Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.",
+    "cvId": 'asdf'
   },
   {
     "id": 3,
@@ -201,7 +100,8 @@ const QQrows = [
     "rateCurrency": "EUR",
     "location": "Poland",
     "technologies": ["Pithon", "PostgreSQL", "FastAPI"],
-    "description": "Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs."
+    "description": "Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.",
+    "cvId": 'asdf'
   },
   {
     "id": 4,
@@ -212,7 +112,8 @@ const QQrows = [
     "rateCurrency": "EUR",
     "location": "Poland",
     "technologies": ["Pithon", "PostgreSQL", "FastAPI"],
-    "description": "Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs."
+    "description": "Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.",
+    "cvId": 'asdf'
   },
   {
     "id": 5,
@@ -223,7 +124,8 @@ const QQrows = [
     "rateCurrency": "USD",
     "location": "Poland",
     "technologies": ["Pithon", "PostgreSQL", "FastAPI"],
-    "description": "Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs."
+    "description": "Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.",
+    "cvId": 'asdf'
   },
   {
     "id": 6,
@@ -234,7 +136,8 @@ const QQrows = [
     "rateCurrency": "USD",
     "location": "USA",
     "technologies": ["React", "Vue", "jss"],
-    "description": "Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs."
+    "description": "Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.",
+    "cvId": 'asdf'
   },
   {
     "id": 7,
@@ -245,7 +148,8 @@ const QQrows = [
     "rateCurrency": "USD",
     "location": "USA",
     "technologies": ["React", "Vue", "jss"],
-    "description": "Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs."
+    "description": "Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.",
+    "cvId": 'asdf'
   },
   {
     "id": 8,
@@ -256,7 +160,8 @@ const QQrows = [
     "rateCurrency": "USD",
     "location": "USA",
     "technologies": ["React", "Vue", "jss"],
-    "description": "Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs."
+    "description": "Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.",
+    "cvId": 'asdf'
   },
   {
     "id": 9,
@@ -267,14 +172,10 @@ const QQrows = [
     "rateCurrency": "USD",
     "location": "Poland",
     "technologies": ["Pithon", "PostgreSQL", "FastAPI"],
-    "description": "Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs."
+    "description": "Lorem ipsum1",
+    "cvId": 'asdf'
   }
 ];
-// Props
-// https://mui.com/x/api/data-grid/data-grid/
-
-
- 
 
 
 export default function DataTable() {
@@ -304,16 +205,16 @@ export default function DataTable() {
     getGridDataPromise()
   }, []);
 
-  console.log("rows", rows)
+  // console.log("rows", rows)
 
   return (
     <div className='grid-wrap' style={{ height: 400, width: 'auto', padding: '0 60px' }}>
         <DataGrid
-          rows={rows}
+          rows={QQrows}
           columns={columns}
           pageSize={5}
           rowsPerPageOptions={[5]}
-          // onCellClick={(value) => {alert(value)}}
+          onCellClick={(value) => {console.log(value?.field, value?.id)}} // unused
           // checkboxSelection
           // autoPageSize
           // rowHeight

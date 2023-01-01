@@ -1,8 +1,32 @@
 .grid-wrap {
-  height: '400px';
-  width: '100%';
+  @include section-wrap;
+  
+  .wrap-container {
+    @include section;
+    height: 400px;
+    width: auto;
+    margin-top: 60px;
+  }
 }
 
-.grid-cell {
-  color: '#f00!important'
+@media screen and (max-width: $small-desctop) {
+  .grid-wrap {
+    .wrap-container {
+      margin-top: 0;
+    }
+  }
+}
+
+@media screen and (max-width: $tablet) {
+  .grid-wrap {
+    h2 {
+      margin-bottom: 8px;
+    }
+  }
+}
+
+@media screen and (max-width: $phone) {
+  .grid-wrap {
+    @include section-wrap-mob;
+  }
 }

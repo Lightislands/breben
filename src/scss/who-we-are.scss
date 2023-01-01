@@ -1,4 +1,4 @@
-.what-you-get-wrap {
+.who-we-are-wrap {
   @include section-wrap;
   
   .wrap-container {
@@ -8,7 +8,7 @@
 }
 
 @media screen and (max-width: $small-desctop) {
-  .what-you-get-wrap {
+  .who-we-are-wrap {
     .wrap-container {
       margin-top: 0;
     }
@@ -16,7 +16,7 @@
 }
 
 @media screen and (max-width: $tablet) {
-  .what-you-get-wrap {
+  .who-we-are-wrap {
     h2 {
       margin-bottom: 8px;
     }
@@ -24,7 +24,7 @@
 }
 
 @media screen and (max-width: $phone) {
-  .what-you-get-wrap {
+  .who-we-are-wrap {
     @include section-wrap-mob;
   }
 }

@@ -42,6 +42,7 @@ const columns = [
     field: 'technologies',
     headerName: 'Technologies',
     headerClassName: 'cell-header',
+    sortable: false,
     minWidth: 100,
     renderCell: (params) => (
       <TechnologiesChips items={params.value} />
@@ -208,31 +209,33 @@ export default function DataTable() {
   // console.log("rows", rows)
 
   return (
-    <div className='grid-wrap' style={{ height: 400, width: 'auto', padding: '0 60px' }}>
-        <DataGrid
-          rows={QQrows}
-          columns={columns}
-          pageSize={5}
-          rowsPerPageOptions={[5]}
-          onCellClick={(value) => {console.log(value?.field, value?.id)}} // unused
-          // checkboxSelection
-          // autoPageSize
-          // rowHeight
-          sx={{
-            // boxShadow: 2,
-            // border: 2,
-            // borderColor: 'primary.light',
-            // '& .MuiDataGrid-cell:hover': {
-            //   color: '#0f0',
-            // },
-            '& .cell-header': {
-              // backgroundColor: 'rgba(255, 7, 0, 0.55)',
-              // fontSize: 16
-              fontWeight: 600,
-              backgroundColor: '#f7f7f7'
-            },
-          }}
-        />
-    </div>
+    <section className='what-you-get-wrap'>
+      <article className='wrap-container' style={{ height: 400, width: 'auto' }}>
+          <DataGrid
+            rows={QQrows}
+            columns={columns}
+            pageSize={5}
+            rowsPerPageOptions={[5]}
+            onCellClick={(value) => {console.log(value?.field, value?.id)}} // unused
+            // checkboxSelection
+            // autoPageSize
+            // rowHeight
+            sx={{
+              // boxShadow: 2,
+              // border: 2,
+              // borderColor: 'primary.light',
+              // '& .MuiDataGrid-cell:hover': {
+              //   color: '#0f0',
+              // },
+              '& .cell-header': {
+                // backgroundColor: 'rgba(255, 7, 0, 0.55)',
+                // fontSize: 16
+                fontWeight: 600,
+                backgroundColor: '#f7f7f7'
+              },
+            }}
+          />
+      </article>
+    </section>
   );
 }
